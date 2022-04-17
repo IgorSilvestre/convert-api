@@ -16,8 +16,10 @@ OBS: will be adding more as needed
 ## Usage
 
 ```
-  node index.js (file without .pdf extension)
+  node index.js <file1> <file2> <file3>
 ```
+
+(file without .pdf extension)
 
 OBS: add config.json file with secretKey provided by API
     
