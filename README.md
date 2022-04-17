@@ -15,7 +15,7 @@ OBS: will be adding more as needed
 
 ## Usage
 
-```bash
+```
   node index.js (file without .pdf extension)
 ```
     
@@ -23,4 +23,4 @@ OBS: will be adding more as needed
 
 ```
 https://www.convertapi.com
-
+```
