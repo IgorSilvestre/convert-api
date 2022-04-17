@@ -1,7 +1,6 @@
 {
   "name": "convert-api",
   "version": "1.0.0",
-  "type": "module",
   "description": "api to work with documents",
   "main": "index.js",
   "scripts": {

@@ -1,13 +1,10 @@
-import convertAPI from 'convertapi'
-import path from 'path'
-
-
-const convert = new convertAPI('6AcXypHScIxfbSj6')
-var __dirname = path.resolve()
+const { secretKey } = require('./config.json')
+const convertAPI = require('convertapi')(secretKey)
 
 process.argv.forEach((file, index) => {
     if (index == 0 || index == 1) return
-    convert.convert('pdf', { File: `${__dirname}/documents/${file}.pdf` })
+    
+    convertAPI.convert('pdf', { File: `${__dirname}/documents/${file}.pdf` })
         .then(function(result) {
             // get converted file url
             console.log("Converted file url: " + result.file.url)
