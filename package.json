@@ -1,16 +1,17 @@
 {
   "name": "convert-api",
   "version": "1.0.0",
-  "description": "api to work with documents",
+  "description": "work with documents",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bin": {
+    "convertapi": "./index.js"
+  },
   "author": "Igor Silvestre",
   "license": "ISC",
   "dependencies": {
-    "commander": "^9.2.0",
-    "convertapi": "^1.11.1",
-    "path": "^0.12.7"
+    "convertapi": "^1.11.1"
   }
 }
