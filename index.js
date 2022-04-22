@@ -1,20 +1,33 @@
+#!/usr/bin/env node
 const { secretKey } = require('./config.json')
 const convertAPI = require('convertapi')(secretKey)
 
+function getFileName (path) {
+    const regex = /[^\\\/]+(?=\.pdf$)/gm
+    return regex.exec(path)[0]
+}
+function getPath (path) {
+    const regex = /.+[\/$]/gm
+    return regex.exec(path)[0]
+}
+
 process.argv.forEach((file, index) => {
     if (index == 0 || index == 1) return
-    
-    convertAPI.convert('pdf', { File: `${__dirname}/documents/${file}.pdf` })
-        .then(function(result) {
+
+    const filePath = getPath(file)
+    const fileName = getFileName(file)
+
+    convertAPI.convert('pdf', { File: file.toString() })
+        .then(result => {
             // get converted file url
             console.log("Converted file url: " + result.file.url)
             // save to file
-            return result.file.save(`output/${file}-compressed.pdf`)
+            return result.file.save(`${filePath}/${fileName}-compressed.pdf`)
         })
-        .then(function(file) {
-            console.log("File saved: " + `${file}-compressed.pdf`)
+        .then(_ => {
+            console.log("File saved: " + `${filePath}/${fileName}-compressed.pdf`)
         })
-        .catch(function(err) {
+        .catch(err => {
             console.error(err.toString())
         })
 })
